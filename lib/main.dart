@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:new_cola/pages/Auth/login.dart';
 import 'package:new_cola/pages/alarm/alarm.dart';
 import 'package:new_cola/pages/home/home.dart';
 import 'package:new_cola/pages/land/land.dart';
@@ -18,7 +19,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: themeData,
-      home: const MainPage(),
+      // home: const MainPage(),
+      home: Login(),
     );
   }
 }

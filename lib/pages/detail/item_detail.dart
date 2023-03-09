@@ -69,25 +69,7 @@ class _ItemDetailPageState extends State<ItemDetailPage> {
                         )
                       ],
                     ),
-                    Container(
-                      width: 80,
-                      height: 30,
-                      child: ElevatedButton(
-                        onPressed: onClick,
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: isFollowed
-                              ? CustomColors().lightOrange
-                              : Colors.white,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                        ),
-                        child: Text(isFollowed ? '팔로우' : '팔로잉',
-                            style: TextStyle(
-                                color:
-                                    isFollowed ? Colors.white : Colors.black)),
-                      ),
-                    )
+                    
                   ],
                 ),
               ),

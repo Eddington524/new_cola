@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:new_cola/main.dart';
+import 'package:new_cola/pages/auth/find_password.dart';
+import 'package:new_cola/pages/auth/sign_up.dart';
 import 'package:new_cola/theme/custom_color.dart';
 
 class Login extends StatefulWidget {
@@ -86,8 +88,12 @@ class _LoginState extends State<Login> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    TextButton(onPressed: (){}, child: Text('회원가입'),),
-                    TextButton(onPressed: (){}, child: Text('비밀번호 찾기'),)
+                    TextButton(onPressed: (){
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => Signup()));
+                    }, child: Text('회원가입'),),
+                    TextButton(onPressed: (){
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => FindPassword()));
+                    }, child: Text('비밀번호 찾기'),)
                   ],
                 )
               ],
@@ -110,10 +116,9 @@ class _LoginState extends State<Login> {
       );
       if(response.statusCode == 200){
         var data = jsonDecode(response.body.toString());
-        print(data['token']);
        // todo user username, profile 이미지 url data 어디에 담을지? 아래 MainPage?
         if(data['token']?.isNotEmpty == true){
-          Navigator.of(context).push(MaterialPageRoute(builder: (context) => MainPage()));
+          Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => MainPage()), (route) => false);
         }
         if(data['result'] == 'failed'){
          showAlertDialog();

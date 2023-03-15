@@ -1,6 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:new_cola/pages/home/tab/follow.dart';
 import 'package:new_cola/pages/home/tab/item.dart';
 import 'package:new_cola/pages/home/tab/town.dart';
 
@@ -66,15 +65,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               Tab(
                 text: 'ITEM',
               ),
-              Tab(
-                text: 'FOLLOW',
-              ),
             ],
           ),
           Expanded(
               child: TabBarView(
             controller: _nestedTabController,
-            children: [TownScreen(), ItemScreen(), FollowScreen()],
+            children: [TownScreen(), ItemScreen()],
           ))
         ],
       ),

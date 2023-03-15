@@ -11,6 +11,7 @@ class RankListView extends StatefulWidget {
 }
 
 class _RankListViewState extends State<RankListView> {
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(

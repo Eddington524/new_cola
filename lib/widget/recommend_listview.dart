@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:new_cola/repository/tag_repo.dart';
+import 'package:new_cola/repository/recommend_repo.dart';
 import 'package:new_cola/theme/custom_color.dart';
 
 import 'item_image.dart';
 
-class TagListView extends StatefulWidget {
-  const TagListView({Key? key}) : super(key: key);
+class RecommendListView extends StatefulWidget {
+  const RecommendListView({Key? key}) : super(key: key);
 
   @override
-  State<TagListView> createState() => _TagListViewState();
+  State<RecommendListView> createState() => _RecommendListViewState();
 }
 
-class _TagListViewState extends State<TagListView> {
+class _RecommendListViewState extends State<RecommendListView> {
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: TagRepo().loadData(),
+      future: RecommendRepo().loadData(),
         builder: (context, snapshot) {
         var list = snapshot.data ?? [];
         return  ListView.separated(

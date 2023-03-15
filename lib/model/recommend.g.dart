@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'tag.dart';
+part of 'recommend.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-Tag _$TagFromJson(Map<String, dynamic> json) => Tag(
+Recommend _$RecommendFromJson(Map<String, dynamic> json) => Recommend(
       json['tagImgUrl'] as String,
       json['tagName'] as String,
       json['userName'] as String,
@@ -14,7 +14,7 @@ Tag _$TagFromJson(Map<String, dynamic> json) => Tag(
       json['collectionCount'] as int,
     );
 
-Map<String, dynamic> _$TagToJson(Tag instance) => <String, dynamic>{
+Map<String, dynamic> _$RecommendToJson(Recommend instance) => <String, dynamic>{
       'tagImgUrl': instance.tagImgUrl,
       'tagName': instance.tagName,
       'userName': instance.userName,

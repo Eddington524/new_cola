@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
@@ -124,8 +125,8 @@ class _LoginState extends State<Login> {
          showAlertDialog();
         }
       }
-    }catch(e){
-      print(e.toString());
+    }catch(error){
+      throw HttpException('Failed to load event: $error');
     }
   }
 
@@ -136,7 +137,6 @@ class _LoginState extends State<Login> {
         builder: (BuildContext context) {
           return AlertDialog(
             title: Text("로그인에 문제가 있으신가요?"),
-            //
             content: Text(
               "아이디와 비밀번호를 재확인해주시기 바랍니다\n또는 비밀번호 찾기를 통해 확인 할 수 있습니다",
             ),

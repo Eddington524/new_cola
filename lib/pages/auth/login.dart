@@ -7,6 +7,7 @@ import 'package:new_cola/main.dart';
 import 'package:new_cola/pages/auth/find_password.dart';
 import 'package:new_cola/pages/auth/sign_up.dart';
 import 'package:new_cola/theme/custom_color.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -117,8 +118,8 @@ class _LoginState extends State<Login> {
       );
       if(response.statusCode == 200){
         var data = jsonDecode(response.body.toString());
-       // todo user username, profile 이미지 url data 어디에 담을지? 아래 MainPage?
         if(data['token']?.isNotEmpty == true){
+          saveToken(data['token']);
           Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => MainPage()), (route) => false);
         }
         if(data['result'] == 'failed'){
@@ -150,6 +151,11 @@ class _LoginState extends State<Login> {
             ],
           );
         });
+  }
+
+  void saveToken(String token) async {
+    final prefs = await SharedPreferences.getInstance();
+    prefs.setString('token', token);
   }
 }
 

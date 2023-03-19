@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:new_cola/pages/Auth/login.dart';
 import 'package:new_cola/pages/myinfo/info_edit.dart';
 import 'package:new_cola/theme/custom_color.dart';
 import 'package:new_cola/widget/item_image.dart';
@@ -40,7 +41,14 @@ class _MyInfoPageState extends State<MyInfoPage> {
               ),
               Padding(
                 padding: const EdgeInsets.all(20),
-                child: TextButton(onPressed: () {}, child: Text('로그아웃')),
+                child: TextButton(onPressed: () {
+                  deleteToken();
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(builder: (context) => Login()),
+                          (route) => false);
+                  return;
+                }, child: Text('로그아웃')),
               )
             ],
           ),
@@ -145,5 +153,10 @@ class _MyInfoPageState extends State<MyInfoPage> {
     var id = prefs.getString('id') ?? "";
     var email = prefs.getString('email') ?? "";
     return {"id": id, "email": email};
+  }
+
+  Future<void> deleteToken() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove('token');
   }
 }

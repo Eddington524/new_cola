@@ -5,14 +5,14 @@ import 'package:new_cola/widget/more_button.dart';
 import 'package:new_cola/widget/section/section.dart';
 import 'package:new_cola/widget/recommend_listview.dart';
 
-class TagSection extends StatefulWidget {
-  const TagSection({Key? key}) : super(key: key);
+class RecommendSection extends StatefulWidget {
+  const RecommendSection({Key? key}) : super(key: key);
 
   @override
-  State<TagSection> createState() => _TagSectionState();
+  State<RecommendSection> createState() => _RecommendSectionState();
 }
 
-class _TagSectionState extends State<TagSection> {
+class _RecommendSectionState extends State<RecommendSection> {
   @override
   Widget build(BuildContext context) {
     return Section(child: Column(

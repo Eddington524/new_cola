@@ -16,7 +16,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    _nestedTabController = TabController(length: 3, vsync: this);
+    _nestedTabController = TabController(length: 2, vsync: this);
   }
 
   @override

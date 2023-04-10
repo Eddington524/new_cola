@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:new_cola/repository/tag_repo.dart';
+import 'package:new_cola/pages/detail/recommend_tag_detail.dart';
+import 'package:new_cola/repository/recommend_repo.dart';
 import 'package:new_cola/theme/custom_color.dart';
 
 import 'item_image.dart';
 
-class TagListView extends StatefulWidget {
-  const TagListView({Key? key}) : super(key: key);
+class RecommendListView extends StatefulWidget {
+  const RecommendListView({Key? key}) : super(key: key);
 
   @override
-  State<TagListView> createState() => _TagListViewState();
+  State<RecommendListView> createState() => _RecommendListViewState();
 }
 
-class _TagListViewState extends State<TagListView> {
+class _RecommendListViewState extends State<RecommendListView> {
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: TagRepo().loadData(),
+      future: RecommendRepo().loadData(),
         builder: (context, snapshot) {
         var list = snapshot.data ?? [];
         return  ListView.separated(
@@ -30,11 +31,16 @@ class _TagListViewState extends State<TagListView> {
             var count = item.collectionCount;
             return Column(
               children: [
-                ItemImage(
-                  width: 110,
-                  height: 110,
-                  imgUrl: item.tagImgUrl,
-                  isCicle: false,
+                GestureDetector(
+                  onTap: (){
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => RecommendDetailPage(recommendTag: item,) ));
+                  },
+                  child: ItemImage(
+                    width: 110,
+                    height: 110,
+                    imgUrl: item.tagImgUrl,
+                    isCicle: false,
+                  ),
                 ),
                 const SizedBox(height: 5),
                 Text(item.tagName, style: TextStyle(fontWeight: FontWeight.w600, fontSize: 15)),

@@ -1,46 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:like_button/like_button.dart';
-import 'package:new_cola/model/item.dart';
-import 'package:new_cola/theme/custom_color.dart';
+import 'package:new_cola/model/market.dart';
 import 'package:new_cola/widget/item_image.dart';
 import 'package:new_cola/widget/link_listview.dart';
-import 'package:new_cola/widget/small_button.dart';
 
-class ItemDetailPage extends StatefulWidget {
-  const ItemDetailPage({Key? key, required this.item}) : super(key: key);
-
-  final Item item;
-
-  @override
-  State<ItemDetailPage> createState() => _ItemDetailPageState();
-}
-
-class _ItemDetailPageState extends State<ItemDetailPage> {
-  bool isMyLiked = false;
-  bool isFollowed = false;
-
-  void onClick() {
-    isFollowed = !isFollowed;
-    setState(() {});
-  }
+class MarketDetailPage extends StatelessWidget {
+  final Market market;
+  const MarketDetailPage({Key? key, required this.market}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          actions: [
-            IconButton(onPressed: () {}, icon: Icon(Icons.bookmark_border)),
-            IconButton(onPressed: () {}, icon: Icon(Icons.share)),
-            IconButton(onPressed: () {}, icon: Icon(Icons.more_horiz)),
-          ],
         ),
         body: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              Image.network(
+                market.itemThumnail,
+                fit: BoxFit.contain,
+              ),
               Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -48,7 +30,7 @@ class _ItemDetailPageState extends State<ItemDetailPage> {
                       children: [
                         ItemImage(
                             width: 50,
-                            imgUrl: widget.item.userImg,
+                            imgUrl: market.itemThumnail,
                             isCicle: true),
                         SizedBox(
                           width: 5,
@@ -57,53 +39,36 @@ class _ItemDetailPageState extends State<ItemDetailPage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              widget.item.userName,
+                              market.userName,
                               style: TextStyle(
                                   fontSize: 15, fontWeight: FontWeight.w600),
                             ),
-                            Text(
-                              widget.item.uploadDate.toString(),
-                              style: TextStyle(fontSize: 10),
-                            )
                           ],
                         )
                       ],
                     ),
-                    
+
                   ],
                 ),
-              ),
-              Image.network(
-                widget.item.itemThumnail,
-                fit: BoxFit.contain,
               ),
               Row(
                 children: [
                   SizedBox(
                     width: 20,
                   ),
-                  LikeButton(
-                      size: 20,
-                      isLiked: isMyLiked,
-                      likeCount: isMyLiked
-                          ? widget.item.likeCount + 1
-                          : widget.item.likeCount),
                   SizedBox(
                     width: 10,
                   ),
-                  IconButton(
-                      onPressed: () {}, icon: Icon(Icons.comment_outlined)),
-                  Text('${widget.item.commentCount}'),
                 ],
               ),
               Text(
-                '${widget.item.itemTitle}',
+                '${market.itemTitle}',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
               ),
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                 child: Text(
-                  '${widget.item.content}',
+                  '직거래',
                   style: TextStyle(fontSize: 15),
                   textAlign: TextAlign.center,
                 ),
@@ -113,12 +78,12 @@ class _ItemDetailPageState extends State<ItemDetailPage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Small_button(
-                        w: 85,
-                        h: 30,
-                        bgColor: CustomColors().mainBlue,
-                        text: '${widget.item.tag}',
-                        textColor: Colors.white),
+                    // Small_button(
+                    //     w: 85,
+                    //     h: 30,
+                    //     bgColor: CustomColors().mainBlue,
+                    //     text: '${market.}',
+                    //     textColor: Colors.white),
                     SizedBox(width: 10),
                   ],
                 ),
@@ -135,9 +100,9 @@ class _ItemDetailPageState extends State<ItemDetailPage> {
                   ),
                 ),
               ),
-        Container(
-            height: 200,
-            padding: EdgeInsets.symmetric(horizontal: 20), child: LinkListView())
+              Container(
+                  height: 200,
+                  padding: EdgeInsets.symmetric(horizontal: 20), child: LinkListView())
             ],
           ),
         ));

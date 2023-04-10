@@ -11,7 +11,10 @@ class ItemScreen extends StatefulWidget {
 class _ItemScreenState extends State<ItemScreen> {
   @override
   Widget build(BuildContext context) {
-    return TrendGridView(isTabView: true,)
-    ;
+
+    return Padding(
+      padding: const EdgeInsets.all(20.0),
+      child: TrendGridView(isTabView: true),
+    );
   }
 }

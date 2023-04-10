@@ -3,20 +3,20 @@ import 'package:flutter/material.dart';
 import 'package:new_cola/widget/item_title_row.dart';
 import 'package:new_cola/widget/more_button.dart';
 import 'package:new_cola/widget/section/section.dart';
-import 'package:new_cola/widget/tag_listview.dart';
+import 'package:new_cola/widget/recommend_listview.dart';
 
-class TagSection extends StatefulWidget {
-  const TagSection({Key? key}) : super(key: key);
+class RecommendSection extends StatefulWidget {
+  const RecommendSection({Key? key}) : super(key: key);
 
   @override
-  State<TagSection> createState() => _TagSectionState();
+  State<RecommendSection> createState() => _RecommendSectionState();
 }
 
-class _TagSectionState extends State<TagSection> {
+class _RecommendSectionState extends State<RecommendSection> {
   @override
   Widget build(BuildContext context) {
     return Section(child: Column(
-      children: const [
+      children:  [
         ItemTitle(
           firstText: '동물',
           isFirstBold: true,
@@ -24,9 +24,12 @@ class _TagSectionState extends State<TagSection> {
         ),
         SizedBox(
           height: 160,
-            child: TagListView()),
+            child: RecommendListView()),
         MoreButton(
-          text: '내 관심태그 전체 보기',
+          text: '내 관심태그 전체 보기',type: 'tags',
+          onTap: (){
+
+          },
         ),
       ],
     ));

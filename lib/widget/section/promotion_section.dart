@@ -3,7 +3,6 @@ import 'package:new_cola/theme/custom_color.dart';
 import 'package:new_cola/widget/Box.dart';
 import 'package:new_cola/widget/item_image.dart';
 import 'package:new_cola/widget/item_title_row.dart';
-import 'package:new_cola/widget/more_button.dart';
 import 'package:new_cola/widget/section/section.dart';
 import 'package:new_cola/widget/timer.dart';
 
@@ -107,7 +106,6 @@ class _PromotionSectionState extends State<PromotionSection> {
             ],
           ),
         ),
-        MoreButton(text: "경매상품 더보기")
       ],
     ));
   }

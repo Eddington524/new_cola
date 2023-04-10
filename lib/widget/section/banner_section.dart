@@ -46,7 +46,7 @@ class _BannerSliderViewState extends State<BannerSliderView> {
                  color: Colors.white,
                  child: GestureDetector(
                    onTap: (){
-                     Navigator.of(context).push(MaterialPageRoute(builder: (context) => BannerDetail(id: item.id,)));
+                     Navigator.of(context).push(MaterialPageRoute(builder: (context) => BannerDetailPage(id: item.id,)));
                    },
                    child: Stack(
                      fit: StackFit.expand,

@@ -7,7 +7,7 @@ import 'package:new_cola/widget/section/news_section.dart';
 import 'package:new_cola/widget/section/playlist_section.dart';
 import 'package:new_cola/widget/section/promotion_section.dart';
 import 'package:new_cola/widget/section/rank_section.dart';
-import 'package:new_cola/widget/section/tag_section.dart';
+import 'package:new_cola/widget/section/recommend_section.dart';
 import 'package:new_cola/widget/section/trend_section.dart';
 
 class TownScreen extends StatefulWidget {
@@ -33,7 +33,7 @@ class _TownScreenState extends State<TownScreen> {
 
               PlaylistSection(),
 
-              TagSection(),
+              RecommendSection(),
 
               MarketSection(),
 

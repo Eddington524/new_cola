@@ -38,8 +38,11 @@ class _MarketSectionState extends State<MarketSection> {
         const SizedBox(
           height: 10,
         ),
-        const MoreButton(
-          text: '트렌드 더보기',
+        MoreButton(
+          text: '마켓 더보기',
+          type: 'market', onTap: (){
+
+        },
         ),
         const SizedBox(
           height: 10,

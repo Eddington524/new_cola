@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 
 class MoreButton extends StatelessWidget {
   final String text;
+  final String type;
+  Function onTap;
 
-  const MoreButton({super.key, required this.text});
+   MoreButton({super.key, required this.text, required this.type, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +13,20 @@ class MoreButton extends StatelessWidget {
       width: 400,
       height: 30,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          onTap.call();
+          // if(type == 'trend'){
+          //   Navigator.of(context).push(
+          //       MaterialPageRoute(builder: (context) => TrendGridView(isTabView: false)));
+          // }
+          // if(type == 'tags'){
+          //
+          // }
+          // if(type == 'market'){
+          //
+          // }
+
+        },
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.white54,
           shape: RoundedRectangleBorder(

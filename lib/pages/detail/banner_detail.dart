@@ -3,13 +3,13 @@ import 'package:new_cola/model/event.dart';
 import 'package:new_cola/repository/event_repo.dart';
 import 'package:new_cola/widget/Box.dart';
 
-class BannerDetail extends StatefulWidget {
+class BannerDetailPage extends StatefulWidget {
   final int id;
 
-  const BannerDetail({Key? key, required this.id}) : super(key: key);
+  const BannerDetailPage({Key? key, required this.id}) : super(key: key);
 
   @override
-  State<BannerDetail> createState() => _BannerDetailState();
+  State<BannerDetailPage> createState() => _BannerDetailPageState();
 }
 
 String formattedDate(DateTime date) {
@@ -20,7 +20,7 @@ String formattedDate(DateTime date) {
   return formattedDate;
 }
 
-class _BannerDetailState extends State<BannerDetail> {
+class _BannerDetailPageState extends State<BannerDetailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

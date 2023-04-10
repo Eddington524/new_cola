@@ -8,11 +8,16 @@ import 'package:new_cola/pages/alarm/alarm.dart';
 import 'package:new_cola/pages/home/home.dart';
 import 'package:new_cola/pages/land/land.dart';
 import 'package:new_cola/pages/myinfo/my_info.dart';
+import 'package:new_cola/provider/home_tab_provider.dart';
 import 'package:new_cola/theme/app_theme.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(
+        create: (BuildContext context) => HomeTabProvider())
+  ],child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {

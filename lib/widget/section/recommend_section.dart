@@ -16,7 +16,7 @@ class _RecommendSectionState extends State<RecommendSection> {
   @override
   Widget build(BuildContext context) {
     return Section(child: Column(
-      children: const [
+      children:  [
         ItemTitle(
           firstText: '동물',
           isFirstBold: true,
@@ -26,7 +26,10 @@ class _RecommendSectionState extends State<RecommendSection> {
           height: 160,
             child: RecommendListView()),
         MoreButton(
-          text: '내 관심태그 전체 보기',
+          text: '내 관심태그 전체 보기',type: 'tags',
+          onTap: (){
+
+          },
         ),
       ],
     ));

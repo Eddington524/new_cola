@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:new_cola/model/tags.dart';
 import 'package:new_cola/repository/tags_repo.dart';
 import 'package:new_cola/theme/custom_color.dart';
 
@@ -17,12 +18,22 @@ class _TagsGridviewPageState extends State<TagsGridviewPage> {
   final List<String> _selectedlist = [];
   late int _currentSelectIdx;
 
+  Future<List<Tags>>? _tags;
+
+  @override
+  void initState() {
+    super.initState();
+    _tags = TagsRepo().loadData();
+  }
+
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: TagsRepo().loadData(),
+        // future: TagsRepo().loadData(),
+        future: _tags,
         builder: (context, snapshot) {
+          print("future builder build");
           var list = snapshot.data ?? [];
           return GridView.builder(
             shrinkWrap: true,

@@ -19,7 +19,7 @@ class _AuctionSectionState extends State<AuctionSection> {
     return Section(
         child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: const [
+      children:  [
         ItemTitle(
           firstText: "유저들이 함께하는 ",
           isFirstBold: false,
@@ -29,7 +29,9 @@ class _AuctionSectionState extends State<AuctionSection> {
           height: 250,
           child: AuctionListView(),
         ),
-        MoreButton(text: "경매상품 더보기")
+        MoreButton(text: "경매상품 더보기", type: 'auction', onTap: (){
+          print("Consumer : tab index changed");
+        }),
       ],
     ));
   }
